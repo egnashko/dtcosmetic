@@ -1,0 +1,649 @@
+$roboto: 'Roboto', sans-serif
+$myColor: #FCD78E
+$myColor2: #00aeff
+$borderColor: #e3e3e3
+
+
+@mixin transitMy($time)
+  -webkit-transition: ease-in-out $time
+  -moz-transition: ease-in-out $time
+  -ms-transition: ease-in-out $time
+  -o-transition: ease-in-out $time
+  transition: ease-in-out $time
+@mixin transit
+  -webkit-transition: ease-in-out .3s
+  -moz-transition: ease-in-out .3s
+  -ms-transition: ease-in-out .3s
+  -o-transition: ease-in-out .3s
+  transition: ease-in-out .3s
+@mixin border($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  -ms-border-radius: $radius
+  -o-border-radius: $radius
+  border-radius: $radius
+
+body
+  font-family: $roboto
+  overflow-x: hidden
+
+.nav_closed
+  width: 100px
+  .my_btn
+    border: 1px solid $myColor2
+    transform: rotate3d(0,1,0,360deg)
+  .logo
+    img
+      opacity: 0
+  .info
+    opacity: 0
+
+nav
+  position: fixed
+  width: 300px
+  height: 1100px
+  background: black
+  left: 0
+  z-index: 10
+  @include transitMy(500ms)
+  .scroll_it
+    height: 100vh
+    overflow-y: auto
+    overflow-x: hidden
+  .my_btn
+    border: 1px solid white
+    padding: 5px
+    width: 62px
+    margin: 10px auto
+    cursor: pointer
+    z-index: 20
+    @include transitMy(500ms)
+    .line
+      height: 4px
+      width: 40px
+      display: block
+      background: white
+      margin: 5px
+      border-radius: 4px
+  .logo
+    img
+      width: 300px
+      @include transitMy(500ms)
+  .info
+    color: white
+    padding: 0 15px
+    width: 300px
+    @include transitMy(500ms)
+    p
+      font: 20px $roboto
+      text-align: center
+      margin-top: 30px
+      margin-bottom: 10px
+    span
+      display: block
+      font: 16px $roboto
+      text-align: center
+      margin-bottom: 10px
+    >a
+      display: block
+      font: 22px $roboto
+      color: $myColor2
+      text-align: center
+      @include transit
+    ul
+      padding-left: 50px
+      li
+        @include transitMy(500ms)
+        a
+          color: white
+          text-transform: uppercase
+          padding: 7px
+          display: block
+          font: 16px $roboto
+          @include transit
+        a:hover
+          background: rgba(255,255,255,.2)
+    .socials
+      text-align: center
+      a
+        color: white
+        @include transit
+        text-align: center
+        display: inline-block
+        width: 40px
+        height: 40px
+        border: 2px solid white
+        border-radius: 50%
+        position: relative
+        margin: 10px
+      a:hover
+        color: $myColor2
+        border: 2px solid $myColor2
+      i
+        font-size: 24px
+        position: absolute
+      .fa-facebook
+        left: 11px
+        top: 6px
+      .fa-vk
+        top: 5px
+        left: 5px
+
+.to_top_btn
+  height: 50px
+  width: 50px
+  border: 2px solid lightgray
+  position: fixed
+  bottom: 10px
+  right: 10px
+  background: transparent
+  a
+    width: 100%
+    height: 100%
+    display: block
+    padding-top: 4px
+  i
+    color: lightgray
+    font-size: 36px
+    text-align: center
+    display: block
+
+
+header, .about_us, .about_us_2, .u_get, .course, .our_works, .reviews, footer
+  margin-left: 100px
+
+header
+  color: white
+  //background: url("../img/header_back.jpeg") no-repeat center
+  background-size: cover
+  .header_sec_back
+    width: 100%
+    height: 100%
+    background: rgba(0,0,0,.7)
+    z-index: 1
+  .header_info
+    h1
+      font-size: 54px
+      font-weight: 700
+      margin-top: 220px
+    p
+      font-size: 40px
+      margin-bottom: 30px
+    span
+      display: block
+      font-size: 18px
+      padding-left: 45px
+      position: relative
+      margin-bottom: 20px
+      i
+        font-size: 40px
+        position: absolute
+        top: calc(50% - 20px)
+        left: 0
+        color: $myColor
+  .header_form
+    background: rgba(255,255,255,.1)
+    @include border(30px)
+    padding: 30px
+    margin-top: 200px
+    margin-bottom: 200px
+    p
+      font-size: 26px
+      text-align: center
+      margin-bottom: 10px
+    label
+      display: block
+      margin: 0 auto 20px
+      width: 100%
+      input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+        -mz-appearance: none
+        -webkit-appearance: none
+      input
+        width: 100%
+        padding: 10px
+        background: rgba(0,0,0,.7)
+        @include border(10px)
+        border: 1px solid rgba(252,215,142,.5)
+        display: block
+        font-family: $roboto
+        font-size: 16px
+        @include transit
+      input[type=number]
+        -moz-appearance: textfield
+      input:focus
+        border: 1px solid rgba(252,215,142,1)
+        border-left: 5px solid rgba(252,215,142,1)
+      input[type=submit]
+        text-transform: uppercase
+        width: 200px
+        letter-spacing: 1px
+        margin: auto
+        background: $myColor
+        color: black
+        font-size: 16px
+        border: 1px solid $myColor
+        @include transit
+      input[type=submit]:hover
+        letter-spacing: 2px
+        background: rgba(0,0,0,.7)
+        border: 1px solid $myColor
+        color: $myColor
+        display: inline-block
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button
+        -webkit-appearance: none
+        -moz-appearance: none
+    label:last-child
+      width: 200px
+
+.about_us
+  .about_pic
+    .about_img
+      width: 100%
+      height: 685px
+      background: url("http://e.litecoding.com.ua/dtcosmetic/img/about_pic.jpg") no-repeat center
+      margin: 130px 0 110px
+      background-size: cover
+  .about_info
+    >p
+      font-size: 36px
+      margin-top: 150px
+      margin-bottom: 0
+    .devider
+      height: 2px
+      width: 150px
+      background: $myColor
+      margin: 10px 0 15px
+    >span
+      font-size: 18px
+      font-weight: 300
+      margin-bottom: 15px
+      display: block
+    .about_cfg
+      margin-bottom: 150px
+      li
+        position: relative
+        font: 16px $roboto
+        padding-left: 25px
+        line-height: 25px
+      i
+        position: absolute
+        color: $myColor2
+        left: 1px
+        top: 3px
+        font-size: 20px
+
+.about_us_2
+  background: #e7e7e7
+  .about_pic
+    .about_img
+      width: 100%
+      height: 410px
+      background: url("http://e.litecoding.com.ua/dtcosmetic/img/u_get_pic.jpg") no-repeat center left
+      margin: 130px 0
+      background-size: cover
+  .about_info
+    .about_cfg
+      position: relative
+      padding-left: 50px
+      i
+        position: absolute
+        font-size: 35px
+        top: calc(50% - 19px)
+        left: 0
+        color: #00aeff
+      span
+        font-size: 18px
+        font-weight: 300
+        margin-bottom: 15px
+        display: block
+    >p
+      font-size: 36px
+      margin-top: 170px
+      margin-bottom: 0
+    .devider
+      height: 2px
+      width: 150px
+      background: $myColor
+      margin: 10px 0 15px
+
+
+.u_get
+  padding-bottom: 100px
+  //background: url("../img/u_get_back.jpg") no-repeat center
+  background-size: cover
+  .headline
+    text-align: center
+    p
+      font-size: 36px
+      color: white
+      background: rgba(0,0,0,.6)
+      display: inline-block
+      padding: 5px 25px 8px
+      border-radius: 50px
+      margin: 100px 0 10px
+    .devider
+      height: 2px
+      width: 300px
+      background: $myColor2
+      margin: 10px auto
+    span
+      font-size: 18px
+      display: inline-block
+      background: rgba(0,0,0,.6)
+      color: white
+      padding: 5px 25px
+      border-radius: 50px
+      margin-top: 10px
+      margin-bottom: 40px
+  .the_good
+    background: rgba(255,255,255,.8)
+    border-radius: 20px
+    text-align: center
+    margin: 15px 0
+    padding: 10px
+    height: 230px
+    .icon
+      i
+        color: $myColor2
+        font-size: 50px
+        margin: 10px 0
+        animation: rotate 5000ms infinite linear
+    .info
+      p
+        font-size: 18px
+        font-weight: 700
+      span
+        font-size: 16px
+
+.course
+  padding-bottom: 100px
+  .headline
+    text-align: center
+    p
+      font-size: 36px
+      display: inline-block
+      padding: 5px 25px 8px
+      border-radius: 50px
+      margin: 100px 0 10px
+    .devider
+      height: 2px
+      width: 300px
+      background: $myColor2
+      margin: 10px auto 40px
+  .courses
+    .headl
+      background: #2b2b2b
+      line-height: 40px
+      padding: 20px 10px 15px
+      position: relative
+      height: 270px
+      p
+        color: white
+        text-align: center
+        font-size: 24px
+        font-weight: 700
+        letter-spacing: 1px
+        margin: 0
+      span
+        display: block
+        font-size: 16px
+        font-weight: 300
+        b
+          color: $myColor2
+    .around_arrow
+      border-left: 1px solid #e3e3e3
+      border-right: 1px solid #e3e3e3
+      margin-bottom: -30px
+    .arrow
+      border: 30px solid transparent
+      border-top: 10px solid #2b2b2b
+      position: relative
+      width: 40px
+      margin: auto
+    .footline
+      background: #2b2b2b
+      padding: 20px 0
+      button
+        margin: auto
+        background: $myColor2
+        color: white
+        font-size: 20px
+        font-weight: 700
+        letter-spacing: 1px
+        text-transform: uppercase
+        border: 2px solid $myColor2
+        display: block
+        padding: 10px 20px
+        -webkit-transition: ease-in-out .3s
+        -moz-transition: ease-in-out .3s
+        -ms-transition: ease-in-out .3s
+        -o-transition: ease-in-out .3s
+        transition: ease-in-out .3s
+      button:hover
+        background: transparent
+        color: $myColor2
+  .course_info
+    border-left: 1px solid $borderColor
+    border-right: 1px solid $borderColor
+    .info_name
+      p
+        position: relative
+        font-size: 16px
+        margin: 0
+        padding: 10px 30px 10px 10px
+        border-bottom: 1px solid $borderColor
+        font-weight: 500
+        i
+          position: absolute
+          font-weight: 700
+          font-style: normal
+          right: 13px
+          font-size: 20px
+          top: calc(50% - 10px)
+          @include transit
+        .active
+          transform: rotate(180deg)
+      ul
+        border-bottom: 1px solid $borderColor
+        display: none
+        >span
+          font-size: 14px $roboto
+          padding: 10px 10px 0px 15px
+          display: block
+      li
+        font-size: 14px $roboto
+        padding: 10px 10px 10px 25px
+        position: relative
+      li:before
+        content: ''
+        height: 8px
+        width: 8px
+        position: absolute
+        background: $myColor2
+        border-radius: 50%
+        left: 12px
+        top: 16px
+        .count
+          top: calc(50% - 14px)
+          right: 16px
+      .programm
+        text-align: center
+        font-weight: 700
+        padding: 10px
+      .slide_it
+        cursor: pointer
+
+.our_works
+  background: #e7e7e7
+  .headline
+    text-align: center
+    p
+      font-size: 36px
+      display: inline-block
+      padding: 5px 25px 8px
+      border-radius: 50px
+      margin: 100px 0 10px
+    .devider
+      height: 2px
+      width: 300px
+      background: $myColor2
+      margin: 10px auto
+    span
+      font-size: 18px
+      display: inline-block
+      padding: 5px 25px
+      border-radius: 50px
+      margin-top: 10px
+      margin-bottom: 40px
+  #owl-demo
+    margin-bottom: 100px
+    .work_back
+      height: 360px
+      width: 100%
+    .back1
+      background: url("../img/111.jpg") no-repeat center
+      background-size: cover
+    .back2
+      background: url("../img/222.jpg") no-repeat center
+      background-size: cover
+    .back3
+      background: url("../img/333.jpg") no-repeat center
+      background-size: cover
+    .back4
+      background: url("../img/444.jpg") no-repeat center
+      background-size: cover
+    .back5
+      background: url("../img/555.jpg") no-repeat center
+      background-size: cover
+    .back6
+      background: url("../img/666.jpg") no-repeat center
+      background-size: cover
+    .item
+      margin: 0 3px
+      position: relative
+      img
+        width: 100%
+      a
+        width: 100%
+        height: 100%
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+.owl-theme .owl-controls .owl-page span
+  background: $myColor2
+.owl-theme .owl-controls
+  margin-top: 30px
+
+.reviews
+  .headline
+    text-align: center
+    p
+      font-size: 36px
+      display: inline-block
+      padding: 5px 25px 8px
+      border-radius: 50px
+      margin: 100px 0 10px
+    .devider
+      height: 2px
+      width: 300px
+      background: $myColor2
+      margin: 10px auto
+    span
+      font-size: 18px
+      display: inline-block
+      padding: 5px 25px
+      border-radius: 50px
+      margin-top: 10px
+      margin-bottom: 40px
+  .the_review
+    .block
+      background: #f7f7f7
+      padding: 30px
+      border: 1px solid $borderColor
+      margin-bottom: 50px
+      .comment_img
+        img
+          display: block
+          margin: auto
+          border-radius: 50%
+          border: 1px solid $borderColor
+          width: 130px
+      .the_comment
+        p
+          color: $myColor2
+          font: 18px $roboto
+          text-align: center
+          display: block
+          margin-top: 20px
+        b
+          font: 14px $roboto
+          text-align: center
+          display: block
+          font-weight: 700
+          margin-bottom: 20px
+        span
+          display: block
+          line-height: 25px
+
+footer
+  p
+    text-align: center
+    font: 24px $roboto
+    background: rgba(0,0,0,.5)
+    width: 280px
+    padding: 30px
+    border-radius: 30px
+    color: white
+    margin: 100px auto 50px
+    a
+      color: $myColor2
+      font: 26px $roboto
+      display: block
+  img
+    width: 500px
+    margin: 0 auto 100px
+    display: block
+    border-radius: 50px
+
+
+
+
+
+
+//preloader
+
+#hellopreloader
+  >p
+    display: none
+  #hellopreloader_preload
+    display: block
+    position: fixed
+    z-index: 99999
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    min-width: 100px
+    background: #b7b7b7 url(http://hello-site.ru//main/images/preloads/bars.svg) center center no-repeat
+    background-size: 105px
+
+//help styles
+
+@keyframes rotate
+  0%
+    transform: rotate3d(0,1,0, 0deg)
+    -webkit-transform: rotate3d(0,1,0, 0deg)
+  25%
+    transform: rotate3d(0,1,0, 90deg)
+    -webkit-transform: rotate3d(0,1,0, 90deg)
+  50%
+    transform: rotate3d(0,1,0, 180deg)
+    -webkit-transform: rotate3d(0,1,0, 180deg)
+  75%
+    transform: rotate3d(0,1,0, 270deg)
+    -webkit-transform: rotate3d(0,1,0, 270deg)
+  100%
+    transform: rotate3d(0,1,0, 360deg)
+    -webkit-transform: rotate3d(0,1,0, 360deg)
